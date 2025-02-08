@@ -2,9 +2,7 @@ package org.example.entities;
 
 import java.util.*;
 import java.time.*;
-// import java.sql.Date;
-
-import java.util.Date;
+import java.time.format.DateTimeFormatter;
 import java.text.SimpleDateFormat;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
@@ -19,17 +17,39 @@ public class Ticket {
     private String sourceStation;
     private String destinationStation;
     private String dateOfTravel;
-    private Boolean isCancelled = false;
     private Train train;
+    private boolean isCancelled;
 
     public Ticket(String ticketId, String userId, String sourceStation, String destinationStation, String dateOfTravel, Train train){
-        this.ticketId = ticketId;
+        this.ticketId = UUID.randomUUID().toString();
         this.userId = userId;
         this.sourceStation = sourceStation;
         this.destinationStation = destinationStation;
         this.dateOfTravel = dateOfTravel;
-        // this.isCancelled = isCancelled;
+        this.isCancelled = false;
         this.train = train;
+    }
+
+    public boolean isValid(){
+        return sourceStation != null && destinationStation != null && train != null && dateOfTravel != null;
+    }
+
+    public long getJourneyDuration(){
+        if (train != null && train.getStationTimes().containsKey(sourceStation) && train.getStationTimes().containsKey(destinationStation)){
+            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("HH:mm:ss");
+            LocalTime departureTime = LocalTime.parse(train.getStationTimes().get(sourceStation).toString(), formatter);
+            LocalTime ArrivalTime = LocalTime.parse(train.getStationTimes().get(destinationStation).toString(), formatter);
+            return Duration.between(departureTime, ArrivalTime).toMinutes();
+        }
+        return -1;
+    }
+
+    public void cancelTicket(){
+        this.isCancelled = true;
+    }
+
+    public boolean isCancelled(){
+        return isCancelled;
     }
 
     public String getTicketId() {
@@ -67,14 +87,6 @@ public class Ticket {
         this.dateOfTravel = dateOfTravel;
     }
 
-    public Boolean getisCancelled(){
-        return isCancelled;
-    }
-    
-    public void setisCancelled(Boolean isCancelled){
-        this.isCancelled = isCancelled;
-    }
-
     public Train getTrain() {
         return train;
     }
@@ -82,24 +94,16 @@ public class Ticket {
         this.train = train;
     }
 
-    public String getFormattedDate(){
-        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-mm-dd H:mm:ss");
-        return dateFormat.format(dateOfTravel);
-    }
-
-    public long getTravelDuration(){
-        return train.getArrivalTime(destinationStation).getTime() - train.getArrivalTime(sourceStation).getTime();
-    }
-
     @Override
     public String toString(){
         return "Ticket{" +
                 "ticketId='" + ticketId + '\'' +
                 ", userId='" + userId + '\'' +
-                ", sourceStation='" + sourceStation + '\'' +
-                ", destinationStation='" + destinationStation + '\'' +
-                ", dateOfTravel=" + getFormattedDate() +
-                ", train=" + train +
+                ", source='" + sourceStation + '\'' +
+                ", destination='" + destinationStation + '\'' +
+                ", dateOfTravel='" + dateOfTravel + '\'' +
+                ", train=" + train.getTrainId() +
+                ", isCancelled=" + isCancelled +
                 '}';
     }
 }
