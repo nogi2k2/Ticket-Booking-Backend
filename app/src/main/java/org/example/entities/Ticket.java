@@ -18,38 +18,18 @@ public class Ticket {
     private String destinationStation;
     private String dateOfTravel;
     private Train train;
-    private boolean isCancelled;
 
     public Ticket(String ticketId, String userId, String sourceStation, String destinationStation, String dateOfTravel, Train train){
-        this.ticketId = UUID.randomUUID().toString();
+        this.ticketId = ticketId;
         this.userId = userId;
         this.sourceStation = sourceStation;
         this.destinationStation = destinationStation;
         this.dateOfTravel = dateOfTravel;
-        this.isCancelled = false;
         this.train = train;
     }
 
     public boolean isValid(){
         return sourceStation != null && destinationStation != null && train != null && dateOfTravel != null;
-    }
-
-    public long getJourneyDuration(){
-        if (train != null && train.getStationTimes().containsKey(sourceStation) && train.getStationTimes().containsKey(destinationStation)){
-            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("HH:mm:ss");
-            LocalTime departureTime = LocalTime.parse(train.getStationTimes().get(sourceStation).toString(), formatter);
-            LocalTime ArrivalTime = LocalTime.parse(train.getStationTimes().get(destinationStation).toString(), formatter);
-            return Duration.between(departureTime, ArrivalTime).toMinutes();
-        }
-        return -1;
-    }
-
-    public void cancelTicket(){
-        this.isCancelled = true;
-    }
-
-    public boolean isCancelled(){
-        return isCancelled;
     }
 
     public String getTicketId() {
@@ -102,8 +82,7 @@ public class Ticket {
                 ", source='" + sourceStation + '\'' +
                 ", destination='" + destinationStation + '\'' +
                 ", dateOfTravel='" + dateOfTravel + '\'' +
-                ", train=" + train.getTrainId() +
-                ", isCancelled=" + isCancelled +
+                ", train=" + (train != null ? train.getTrainId() : "N/A")+
                 '}';
     }
 }
