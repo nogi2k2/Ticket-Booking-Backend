@@ -1,8 +1,8 @@
-# IRCTC-Backend
+# Ticket-Booking-Backend
 
 ## Overview
 
-IRCTC-Backend is a Java-based backend system for railway ticket booking, inspired by real-world railway reservation systems. This project manages train schedules, user bookings, and ticket generation while utilizing JSON for local database storage.
+Ticket-Booking-Backend is a Java-based backend system for railway ticket booking, inspired by real-world railway reservation systems. This project manages train schedules, user bookings, and ticket generation while utilizing JSON for local database storage.
 
 ## Features
 
@@ -22,7 +22,6 @@ IRCTC-Backend is a Java-based backend system for railway ticket booking, inspire
 ## Project Structure
 
 ```
-IRCTC-Backend/
 │── src/
 │   ├── main/
 │   │   ├── java/org/example/
@@ -48,12 +47,12 @@ IRCTC-Backend/
 
 1. **Clone the repository**:
    ```sh
-   git clone https://github.com/your-username/IRCTC-Backend.git
+   git clone https://github.com/nogi2k2/Ticket-Booking-Backend.git
    cd IRCTC-Backend
    ```
 2. **Build the project using Gradle**:
    ```sh
-   gradle build
+   gradlew.bat build
    ```
 3. **Run the application**:
    ```sh

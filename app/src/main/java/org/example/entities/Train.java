@@ -1,6 +1,10 @@
 package org.example.entities;
 import java.util.*;
 import java.time.*;
+import java.sql.*;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 
 public class Train {
     private String trainId;
