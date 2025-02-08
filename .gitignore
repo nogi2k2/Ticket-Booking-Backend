@@ -1,0 +1,26 @@
+# Gradle-specific
+.gradle/
+build/
+out/
+!gradle/wrapper/gradle-wrapper.jar
+
+# Windows-specific
+*.exe
+*.dll
+*.obj
+*.pdb
+Thumbs.db
+Desktop.ini
+
+# IntelliJ IDEA / Eclipse / VSCode
+*.iml
+.idea/
+*.classpath
+*.project
+*.settings/
+.vscode/
+
+# Logs & Temporary Files
+*.log
+*.swp
+*.swo

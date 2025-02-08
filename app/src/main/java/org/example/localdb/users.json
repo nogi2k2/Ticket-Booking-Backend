@@ -1,0 +1,110 @@
+[
+    {
+        "user_id": "12345",
+        "name": "Ashutosh Rai",
+        "hashedPassword": "abc12345",
+        "tickets_booked": [
+            {
+                "source": "Bangalore",
+                "destination": "Delhi",
+                "date_of_travel": "2025-12-08T18:30:00Z",
+                "train": {
+                    "train_id": "bacs",
+                    "train_no": "12345",
+                    "seats": [
+                        [0,0,0,0,0,0],
+                        [0,0,0,0,0,0],
+                        [0,0,0,0,0,0],
+                        [0,0,0,0,0,0]
+                    ],
+                    "stations": {
+                        "Bangalore": "13:50:00",
+                        "Jaipur": "13:50:00",
+                        "Delhi": "13:50:00"
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "user_id": "67890",
+        "name": "Priya Sharma",
+        "hashedPassword": "xyz67890",
+        "tickets_booked": [
+            {
+                "source": "Mumbai",
+                "destination": "Chennai",
+                "date_of_travel": "2025-11-15T10:00:00Z",
+                "train": {
+                    "train_id": "mctn",
+                    "train_no": "56789",
+                    "seats": [
+                        [1,0,0,1,0,1],
+                        [0,1,1,0,1,0],
+                        [1,1,0,0,0,0],
+                        [0,0,1,1,1,0]
+                    ],
+                    "stations": {
+                        "Mumbai": "08:00:00",
+                        "Pune": "12:00:00",
+                        "Chennai": "18:30:00"
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "user_id": "11223",
+        "name": "Rahul Verma",
+        "hashedPassword": "pqr11223",
+        "tickets_booked": [
+            {
+                "source": "Hyderabad",
+                "destination": "Kolkata",
+                "date_of_travel": "2025-10-20T07:45:00Z",
+                "train": {
+                    "train_id": "hydkol",
+                    "train_no": "33456",
+                    "seats": [
+                        [0,0,1,0,1,1],
+                        [1,0,0,1,1,0],
+                        [0,1,1,0,0,1],
+                        [1,1,0,0,0,0]
+                    ],
+                    "stations": {
+                        "Hyderabad": "07:45:00",
+                        "Vishakhapatnam": "14:30:00",
+                        "Kolkata": "22:15:00"
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "user_id": "33445",
+        "name": "Sneha Gupta",
+        "hashedPassword": "def33445",
+        "tickets_booked": [
+            {
+                "source": "Ahmedabad",
+                "destination": "Lucknow",
+                "date_of_travel": "2025-09-25T16:20:00Z",
+                "train": {
+                    "train_id": "ahmlko",
+                    "train_no": "99887",
+                    "seats": [
+                        [1,1,0,0,0,1],
+                        [0,1,1,1,0,0],
+                        [1,0,0,1,1,0],
+                        [0,0,1,0,1,1]
+                    ],
+                    "stations": {
+                        "Ahmedabad": "16:20:00",
+                        "Bhopal": "21:00:00",
+                        "Lucknow": "05:45:00"
+                    }
+                }
+            }
+        ]
+    }
+]
