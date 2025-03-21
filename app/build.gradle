@@ -36,4 +36,12 @@ java {
 application {
     // Define the main class for the application.
     mainClass = 'org.example.App'
+
+    // ✅ Force Gradle to use the terminal console for input
+    applicationDefaultJvmArgs = ["-Djline.terminal=auto"]
 }
+
+tasks.withType(Test).configureEach {
+    enabled = false
+}
+

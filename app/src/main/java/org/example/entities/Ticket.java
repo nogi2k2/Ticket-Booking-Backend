@@ -19,6 +19,8 @@ public class Ticket {
     private String dateOfTravel;
     private Train train;
 
+    public Ticket(){}
+
     public Ticket(String ticketId, String userId, String sourceStation, String destinationStation, String dateOfTravel, Train train){
         this.ticketId = ticketId;
         this.userId = userId;

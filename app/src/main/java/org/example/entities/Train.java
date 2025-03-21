@@ -15,10 +15,12 @@ public class Train {
     private String trainId;
     private String trainNo;
     private List<List<Integer>> seats;
-    private HashMap<String, Time> stationTimes;
+    private HashMap<String, String> stationTimes;
     private List<String> stations;
 
-    public Train(String trainId, String trainNo, List<List<Integer>> seats, HashMap<String, Time> stationTimes, List<String> stations) {
+    public Train(){}
+
+    public Train(String trainId, String trainNo, List<List<Integer>> seats, HashMap<String, String> stationTimes, List<String> stations) {
         this.trainId = trainId;
         this.trainNo = trainNo;
         this.seats = seats;
@@ -26,7 +28,7 @@ public class Train {
         this.stations = stations;
     }
     
-    public HashMap<String, Time> getStationTimes() {
+    public HashMap<String, String> getStationTimes() {
         return stationTimes;
     }
 
@@ -58,7 +60,7 @@ public class Train {
         this.seats = seats;
     }
 
-    public void setStationTimes(HashMap<String, Time> stationTimes) {
+    public void setStationTimes(HashMap<String, String> stationTimes) {
         this.stationTimes = stationTimes;
     }
     

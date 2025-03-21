@@ -17,7 +17,7 @@
                         [0,0,0,0,0,0],
                         [0,0,0,0,0,0]
                     ],
-                    "stations": {
+                    "station_times": {
                         "Bangalore": "13:50:00",
                         "Jaipur": "13:50:00",
                         "Delhi": "13:50:00"
@@ -44,7 +44,7 @@
                         [1,1,0,0,0,0],
                         [0,0,1,1,1,0]
                     ],
-                    "stations": {
+                    "station_times": {
                         "Mumbai": "08:00:00",
                         "Pune": "12:00:00",
                         "Chennai": "18:30:00"
@@ -71,7 +71,7 @@
                         [0,1,1,0,0,1],
                         [1,1,0,0,0,0]
                     ],
-                    "stations": {
+                    "station_times": {
                         "Hyderabad": "07:45:00",
                         "Vishakhapatnam": "14:30:00",
                         "Kolkata": "22:15:00"
@@ -98,7 +98,7 @@
                         [1,0,0,1,1,0],
                         [0,0,1,0,1,1]
                     ],
-                    "stations": {
+                    "station_times": {
                         "Ahmedabad": "16:20:00",
                         "Bhopal": "21:00:00",
                         "Lucknow": "05:45:00"
