@@ -56,7 +56,7 @@ Ticket-Booking-Backend is a Java-based backend system for railway ticket booking
    ```
 3. **Run the application**:
    ```sh
-   gradle run
+   gradle run --console=plain
    ```
 
 ## How to Contribute
