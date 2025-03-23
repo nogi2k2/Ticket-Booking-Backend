@@ -1,9 +1,5 @@
 package org.example.entities;
 import java.util.*;
-import java.time.*;
-import java.sql.*;
-// import lombok.Getter;
-// import lombok.Setter;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.databind.annotation.JsonNaming;
@@ -26,6 +22,12 @@ public class Train {
         this.seats = seats;
         this.stationTimes = stationTimes;
         this.stations = stations;
+    }
+
+    public void printSchedule(){
+        for (Map.Entry<String, String> entry: stationTimes.entrySet()){
+            System.out.println(String.format("Station: %s\nTime: %s", entry.getKey(), entry.getValue()));
+        }
     }
     
     public HashMap<String, String> getStationTimes() {

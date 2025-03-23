@@ -1,10 +1,5 @@
 package org.example.entities;
 
-import java.util.*;
-import java.time.*;
-import java.time.format.DateTimeFormatter;
-import java.text.SimpleDateFormat;
-
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.databind.PropertyNamingStrategy;
 import com.fasterxml.jackson.databind.annotation.JsonNaming;
