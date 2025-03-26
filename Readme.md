@@ -7,10 +7,10 @@ Ticket-Booking-Backend is a Java-based backend system for railway ticket booking
 ## Features
 
 - **User Authentication**: Sign up and log in functionality for users.
-- **Train Management**: Fetch train details, arrival/departure times, and seat availability.
-- **Ticket Booking**: Reserve seats and generate tickets dynamically.
-- **Cancellation & Refund**: Cancel booked tickets with refund calculations.
-- **Local JSON Database**: Store user and train data using JSON files.
+- **Train Management**: Fetches train details, arrival/departure times, and seat availability.
+- **Ticket Booking**: Reserves seats and generates tickets dynamically.
+- **Cancellation & Refund**: Cancels booked tickets.
+- **Local JSON Database**: Stores user and train data using JSON files as local db.
 
 ## Tech Stack
 
@@ -18,6 +18,7 @@ Ticket-Booking-Backend is a Java-based backend system for railway ticket booking
 - **Jackson Library** (JSON Parsing & Serialization)
 - **JUnit** (Unit Testing)
 - **Gradle** (Build Automation)
+- **Mockito** (Unit Testing)
 
 ## Project Structure
 
@@ -27,20 +28,26 @@ Ticket-Booking-Backend is a Java-based backend system for railway ticket booking
 │   │   ├── java/org/example/
 │   │   │   ├── App.java (Main Application Entry Point)
 │   │   │   ├── entities/
-│   │   │   │   ├── User.java (User Entity)
-│   │   │   │   ├── Train.java (Train Entity)
-│   │   │   │   ├── Ticket.java (Ticket Entity)
+│   │   │   │   ├── User.java 
+│   │   │   │   ├── Train.java 
+│   │   │   │   ├── Ticket.java 
+│   │   │   ├── localdb/
+│   │   │   │   ├── users.json 
+│   │   │   │   ├── trains.json 
 │   │   │   ├── services/
-│   │   │   │   ├── UserBookingService.java (Handles user bookings)
-│   │   │   │   ├── TrainService.java (Manages train data)
-│── test/
-│   ├── java/org/example/
-│   │   ├── AppTest.java (Unit Tests)
-│── localdb/
-│   ├── users.json (Mock user database)
-│   ├── trains.json (Mock train database)
-│── build.gradle (Gradle Configuration)
-│── README.md (Project Documentation)
+│   │   │   │   ├── UserBookingService.java 
+│   │   │   │   ├── TrainService.java 
+│   │   │   ├── util/
+│   │   │   │   ├── UserServiceUtil.java
+│   ├── test/
+│   │   ├── java/org/example/
+│   │   │   ├── entities/
+│   │   │   │   ├── UserTest.java 
+│   │   │   │   ├── TrainTest.java 
+│   │   │   │   ├── TicketTest.java
+│   │   │   ├── services/
+│   │   │   │   ├── UserBookingServiceTest.java 
+│   │   │   │   ├── TrainServiceTest.java 
 ```
 
 ## Installation & Setup
@@ -48,20 +55,21 @@ Ticket-Booking-Backend is a Java-based backend system for railway ticket booking
 1. **Clone the repository**:
    ```sh
    git clone https://github.com/nogi2k2/Ticket-Booking-Backend.git
-   cd IRCTC-Backend
    ```
 2. **Build the project using Gradle**:
    ```sh
-   gradlew.bat build
+   gradlew.bat build 
+         (or)
+   gradle build
    ```
 3. **Run the application**:
    ```sh
-   gradle run --console=plain
+   gradle run --console=plain (forces input through terminal)
    ```
 
 ## How to Contribute
 
 1. Fork the repository.
-2. Create a new branch (`feature-xyz`).
+2. Create a new branch (`feature-x`).
 3. Commit your changes.
 4. Push the branch and create a pull request.
