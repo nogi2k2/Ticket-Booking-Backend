@@ -9,8 +9,8 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.core.type.TypeReference;
 
 public class UserBookingService {
-    private User user;
-    private List<User> userList;
+    public User user;
+    public List<User> userList;
     private ObjectMapper objectMapper = new ObjectMapper();
     private static final String USERS_PATH = "C:\\Users\\Nogi2\\OneDrive\\Desktop\\bruh\\Java-Backend\\IRCTC-Backend\\app\\src\\main\\java\\org\\example\\localdb\\users.json";
 
@@ -99,7 +99,6 @@ public class UserBookingService {
         Scanner sc = new Scanner(System.in);
         System.out.println("Enter the ticketId for cancellation: ");
         String tempId = sc.next();
-        sc.close();
 
         if (tempId == null || tempId.isEmpty()){
             System.out.println("Invalid Ticket ID");

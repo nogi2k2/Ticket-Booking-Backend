@@ -20,6 +20,8 @@ dependencies {
     testImplementation libs.junit
     testImplementation 'org.junit.jupiter:junit-jupiter-api:5.10.0'
     testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.10.0'
+    testImplementation 'org.mockito:mockito-core:5.12.0'
+    testImplementation 'org.mockito:mockito-junit-jupiter:5.12.0'
 
     // This dependency is used by the application.
     implementation libs.guava
@@ -54,6 +56,10 @@ test {
         events "passed", "skipped", "failed"
         showStandardStreams = true
     }
+}
+
+run {
+    standardInput = System.in
 }
 
 

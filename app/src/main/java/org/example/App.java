@@ -19,7 +19,7 @@ public class App {
             System.out.println(String.format("Error: %s", e));
             return;
         }
-        opt = Integer.parseInt(sc.nextLine());
+       opt = Integer.parseInt(sc.nextLine());
         while (opt != 7){
             System.out.println("Menu:");
             System.out.println("1. Sign up");
@@ -29,9 +29,12 @@ public class App {
             System.out.println("5. Book seats");
             System.out.println("6. Cancel Booking");
             System.out.println("Exit Menu");
-
-            String temp = sc.nextLine();
-            opt = Integer.parseInt(temp);
+            String temp;
+            while (sc.hasNextLine()){
+                temp = sc.nextLine();
+                opt = Integer.parseInt(temp);
+            }
+            opt = Integer.parseInt(sc.nextLine());
             Train trainforbooking = new Train();
             
             switch (opt){
@@ -99,132 +102,3 @@ public class App {
         }
     }
 }
-
-
-// public class App {
-
-//     public static void main(String[] args) {
-//         System.out.println("Running Ticket Booking System:");
-
-//         try (BufferedReader reader = new BufferedReader(new InputStreamReader(System.in))) {
-            
-//             UserBookingService ubsobj;
-//             try {
-//                 ubsobj = new UserBookingService();
-//             } catch (IOException e) {
-//                 System.out.println(String.format("Error: %s", e));
-//                 return;
-//             }
-
-//             int opt = 0;
-//             while (opt != 7) {
-//                 System.out.println("Menu:");
-//                 System.out.println("1. Sign up");
-//                 System.out.println("2. Login");
-//                 System.out.println("3. Fetch Bookings");
-//                 System.out.println("4. Search Trains");
-//                 System.out.println("5. Book seats");
-//                 System.out.println("6. Cancel Booking");
-//                 System.out.println("7. Exit Menu");
-
-//                 try {
-//                     opt = Integer.parseInt(reader.readLine());
-//                 } catch (NumberFormatException e) {
-//                     System.out.println("Invalid input. Please enter a number.");
-//                     continue;
-//                 }
-
-//                 Train trainforbooking = new Train();
-
-//                 switch (opt) {
-//                     case 1:
-//                         System.out.println("Enter username:");
-//                         String namesignup = reader.readLine();
-
-//                         System.out.println("Enter Password:");
-//                         String pwdsignup = reader.readLine();
-
-//                         User user = new User(namesignup, pwdsignup, UUID.randomUUID().toString());
-//                         Boolean signup = ubsobj.Signup(user);
-
-//                         System.out.println(signup ? "User Signed up Successfully." : "User Already Exists!");
-//                         break;
-
-//                     case 2:
-//                         System.out.println("Enter Username:");
-//                         String userlogin = reader.readLine();
-
-//                         System.out.println("Enter Password:");
-//                         String pwdlogin = reader.readLine();
-
-//                         Boolean login = ubsobj.loginUser(userlogin, pwdlogin);
-
-//                         System.out.println(login ? "Logged in Successfully" : "User does not exist");
-//                         break;
-
-//                     case 3:
-//                         System.out.println("Fetching Bookings");
-//                         ubsobj.fetchBookings();
-//                         break;
-
-//                     case 4:
-//                         System.out.println("Enter Source Station");
-//                         String sourceStation = reader.readLine();
-
-//                         System.out.println("Enter Destination Station");
-//                         String destinationStation = reader.readLine();
-
-//                         List<Train> trains = ubsobj.getTrains(sourceStation, destinationStation);
-//                         for (Train train : trains) {
-//                             System.out.println(String.format("Train Id: %s", train.getTrainId()));
-//                             System.out.println(String.format("Train No: %s", train.getTrainNo()));
-
-//                             for (Map.Entry<String, String> entry : train.getStationTimes().entrySet()) {
-//                                 System.out.println(String.format("Station: %s\nTime: %s", entry.getKey(), entry.getValue()));
-//                             }
-//                         }
-
-//                         System.out.println("Select the train for booking seats");
-//                         int trainIndex = Integer.parseInt(reader.readLine());
-//                         if (trainIndex >= 0 && trainIndex < trains.size()) {
-//                             trainforbooking = trains.get(trainIndex);
-//                         } else {
-//                             System.out.println("Invalid train index.");
-//                         }
-//                         break;
-
-//                     case 5:
-//                         List<List<Integer>> seats = ubsobj.fetchSeats(trainforbooking);
-//                         System.out.println("Displaying Seat Booking Status:");
-
-//                         for (List<Integer> row : seats) {
-//                             for (Integer col : row) {
-//                                 System.out.print(col + " ");
-//                             }
-//                             System.out.println();
-//                         }
-
-//                         System.out.println("Enter the seat row and column:");
-//                         String[] seatInput = reader.readLine().split(" ");
-//                         if (seatInput.length == 2) {
-//                             int seatrow = Integer.parseInt(seatInput[0]);
-//                             int seatcol = Integer.parseInt(seatInput[1]);
-
-//                             Boolean seatbookingstatus = ubsobj.bookTrainSeat(trainforbooking, seatrow, seatcol);
-//                             System.out.println(seatbookingstatus ? "Seat Booked Successfully" : "Error Booking seat");
-//                         } else {
-//                             System.out.println("Invalid seat format. Use: row col");
-//                         }
-//                         break;
-
-//                     default:
-//                         System.out.println("Exiting...");
-//                         break;
-//                 }
-//             }
-
-//         } catch (IOException e) {
-//             e.printStackTrace();
-//         }
-//     }
-// }

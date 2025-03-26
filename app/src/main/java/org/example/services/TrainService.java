@@ -19,24 +19,32 @@ public class TrainService {
         trainList = objectMapper.readValue(trains, new TypeReference<List<Train>>() {});
     }
 
+    public List<Train> getTrainList(){
+        return trainList;
+    }
+
     public List<Train> searchTrains(String source, String destination){
         return trainList.stream().filter(train -> validTrain(train, source, destination)).collect(Collectors.toList());
     }
 
-    public void addTrain(Train newTrain){
+    public Boolean addTrain(Train newTrain){
         Optional<Train> existing = trainList.stream()
         .filter(train -> train.getTrainId().equalsIgnoreCase(newTrain.getTrainId()))
         .findFirst();
 
         if (existing.isPresent()){
             updateTrain(newTrain);
+            System.out.println("Train already exists!");
+            return Boolean.FALSE;
         }else{
             trainList.add(newTrain);
+            System.out.println("Train added Succesfully!");
             saveTrainList();
+            return Boolean.TRUE;
         }
     }
 
-    private void updateTrain(Train newTrain){
+    public Boolean updateTrain(Train newTrain){
         OptionalInt index = IntStream.range(0, trainList.size())
         .filter(i -> trainList.get(i).getTrainId().equalsIgnoreCase(newTrain.getTrainId()))
         .findFirst();
@@ -44,8 +52,12 @@ public class TrainService {
         if (index.isPresent()){
             trainList.set(index.getAsInt(), newTrain);
             saveTrainList();
+            System.out.println("Updated Train Succesfully!");
+            return Boolean.TRUE;
         }else{
             addTrain(newTrain);
+            System.out.println("Train does\'nt exist, adding train.");
+            return Boolean.FALSE;
         }
     }
 
